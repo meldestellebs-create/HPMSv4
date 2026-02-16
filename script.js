@@ -1,4 +1,3 @@
-Hergestellt mit Perplexity
 // ==================== PATHS DATABASE ====================
 // KORRIGIERT: Alle "studium"-Keys wurden zu "bachelor" geändert (HTML-Konsistenz)
 
