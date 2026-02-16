@@ -66,12 +66,12 @@
 </div>
 <!-- Visualisierung -->
 <div class="visualization-area">
-<div class="endpoint-circle" id="vis-start">?</div>
+<div class="endpoint-circle" id="visual-start">?</div>
 <div class="connection-line"><div class="connection-arrow"></div></div>
-<div class="endpoint-circle" id="vis-target">?</div>
+<div class="endpoint-circle" id="visual-target">?</div>
 </div>
 <button class="btn-primary" onclick="showPaths()">🔍 Wege anzeigen</button>
-<button class="btn-secondary" onclick="resetPaths()">🔄 Zurücksetzen</button>
+<button class="btn-secondary" onclick="reset()">🔄 Zurücksetzen</button>
 <div id="result" class="results-container"></div>
 </div>
 </section>
@@ -92,7 +92,7 @@
 </div>
 </div>
 </section>
-<!-- GLOSSAR MIT LEEREM CONTAINER (WIRD PER JS GEFÜLLT) -->
+<!-- GLOSSAR -->
 <section id="glossar-section" class="option-card">
 <div class="card-header"><div class="icon-wrapper">💡</div><h2>Begriffe erklärt</h2></div>
 <div class="card-content">
@@ -105,15 +105,15 @@
 <div class="card-header"><div class="icon-wrapper">🎯</div><h2>Berufswahl-Quiz</h2></div>
 <div class="card-content">
 <div id="quiz-app">
-<div id="quiz-start"><button class="btn-primary" onclick="QuizApp.start()">Quiz starten</button></div>
+<div id="quiz-start"><button class="btn-primary" onclick="startQuiz()">Quiz starten</button></div>
 <div id="quiz-question-container" style="display:none">
-<div style="background:#eee; height:8px; border-radius:4px; margin-bottom:1rem"><div id="quiz-progress-fill" style="background:var(--text-dark); height:100%; width:0%"></div></div>
+<div style="background:#eee; height:8px; border-radius:4px; margin-bottom:1rem"><div id="quiz-progress-fill" style="background:#2C3E50; height:100%; width:0%"></div></div>
 <h3 id="quiz-question-text">Frage</h3>
 <div id="quiz-options-container" class="quiz-options"></div>
 </div>
 <div id="quiz-results" style="display:none">
 <div id="quiz-result-list"></div>
-<button class="btn-secondary" onclick="QuizApp.reset()">Neu starten</button>
+<button class="btn-secondary" onclick="resetQuiz()">Neu starten</button>
 </div>
 </div>
 </div>
