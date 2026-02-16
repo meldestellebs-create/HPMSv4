@@ -3,55 +3,53 @@
 // 1. GLOSSAR DATEN (EXAKT AUS DOCX)
 // ==========================================
 const glossarDaten = [
-    { name: "Hauptschulabschluss", full: "Erster allgemeinbildender Schulabschluss", description: "Der Hauptschulabschluss ist der erste allgemeinbildende Schulabschluss in Deutschland. Er wird nach erfolgreichem Abschluss der 9. Klasse erworben und ermöglicht den Zugang zu einer Berufsausbildung oder weiteren schulischen Bildungswegen." },
-    { name: "Mittlere Reife", full: "Mittlerer Bildungsabschluss", description: "Die Mittlere Reife (auch Realschulabschluss genannt) wird nach der 10. Klasse erworben. Dieser Abschluss qualifiziert für anspruchsvollere Berufsausbildungen und ermöglicht den Zugang zu weiterführenden Schulen wie Berufskolleg oder beruflichem Gymnasium." },
-    { name: "Fachhochschulreife", full: "Fachabitur", description: "Die Fachhochschulreife berechtigt zum Studium an Fachhochschulen und manchen Universitäten. Sie kann an Berufskollegs, Fachoberschulen oder beruflichen Gymnasien erworben werden und kombiniert oft theoretisches Wissen mit praktischen Erfahrungen." },
-    { name: "Abitur", full: "Allgemeine Hochschulreife", description: "Das Abitur ist der höchste Schulabschluss in Deutschland und berechtigt zum Studium an allen Universitäten und Hochschulen. Es kann an allgemeinbildenden oder beruflichen Gymnasien erworben werden." },
-    { name: "AVdual", full: "Ausbildungsvorbereitung dual", description: "AVdual ist ein Bildungsgang für Jugendliche ohne Ausbildungsplatz. Er kombiniert schulisches Lernen mit praktischen Erfahrungen in Betrieben und bereitet gezielt auf eine Berufsausbildung vor. Gleichzeitig kann der Hauptschulabschluss erworben oder verbessert werden." },
-    { name: "VABO", full: "Vorqualifizierungsjahr Arbeit/Beruf mit Schwerpunkt Erwerb von Deutschkenntnissen", description: "Das VABO richtet sich an Jugendliche ohne ausreichende Deutschkenntnisse. Es vermittelt Sprachkenntnisse und berufliche Orientierung, um den Zugang zum deutschen Bildungssystem und Arbeitsmarkt zu erleichtern." },
-    { name: "Berufskolleg", full: "Berufliche Vollzeitschule", description: "Das Berufskolleg ist eine berufliche Vollzeitschule, die zur Fachhochschulreife führt und gleichzeitig berufliche Kenntnisse vermittelt. Es gibt verschiedene Fachrichtungen wie Wirtschaft, Technik oder Gesundheit." },
-    { name: "Berufliches Gymnasium", full: "Weg zum Abitur mit Profil", description: "Das berufliche Gymnasium führt zur allgemeinen Hochschulreife (Abitur) und verbindet allgemeinbildende Fächer mit berufsbezogenen Schwerpunkten wie Wirtschaft, Technik oder Gesundheit." },
-    { name: "Duale Ausbildung", full: "Betriebliche Ausbildung", description: "Die duale Ausbildung kombiniert praktische Arbeit im Betrieb mit theoretischem Unterricht in der Berufsschule. Sie dauert in der Regel 2-3,5 Jahre und führt zu einem anerkannten Berufsabschluss." },
-    { name: "Meister/Techniker/Fachwirt", full: "Fortbildungsabschlüsse", description: "Diese Fortbildungsabschlüsse bauen auf einer abgeschlossenen Berufsausbildung auf und qualifizieren für Führungspositionen oder Selbstständigkeit. Sie sind dem Bachelor-Niveau gleichgestellt und ermöglichen auch ein Hochschulstudium." },
-    { name: "1BFS", full: "1-jährige Berufsfachschule", description: "Die einjährige Berufsfachschule vermittelt berufliche Grundbildung in bestimmten Berufsfeldern wie Metalltechnik, Bautechnik oder Hauswirtschaft. Sie kann bei einer Ausbildungsplatzzusage als erstes Ausbildungsjahr angerechnet werden. Ohne Hauptschulabschluss wird mit erfolgreichem Abschluss ein gleichwertiger Bildungsstand erworben." },
-    { name: "2BFS", full: "2-jährige Berufsfachschule", description: "Die 2BFS baut auf dem Hauptschulabschluss auf und führt zur Fachschulreife (mittlerer Bildungsabschluss). Sie vermittelt berufliche Grundbildung in drei Bereichen: kaufmännisch, gewerblich-technisch oder Ernährung und Gesundheit." },
-    { name: "BAS", full: "Berufsaufbauschule", description: "Die Berufsaufbauschule ist die Mittelstufe der Berufsoberschule. Mit Hauptschulabschluss und abgeschlossener Berufsausbildung kann hier in einem Jahr der mittlere Bildungsabschluss (Fachschulreife) erworben werden." },
-    { name: "BOS", full: "Berufsoberschule", description: "Die Berufsoberschule richtet sich an Personen mit abgeschlossener Berufsausbildung. Die zweijährige Oberstufe führt zur fachgebundenen Hochschulreife oder -- bei Erwerb einer zweiten Fremdsprache -- zur allgemeinen Hochschulreife." },
-    { name: "Modell 9+3", full: "Mittlere Reife durch Ausbildung", description: "Ein besonderer Weg zum mittleren Bildungsabschluss: 9 Jahre Haupt-/Werkrealschule + 3 Jahre Berufsausbildung. Bei einem Notendurchschnitt von mindestens 2,5 (aus Hauptschulabschlussprüfung, Berufsschulabschluss und Prüfung im Ausbildungsberuf) wird ein dem Realschulabschluss gleichwertiger Bildungsstand zuerkannt." },
-    { name: "Fachschule", full: "Weiterbildung nach Ausbildung", description: "Fachschulen sind Weiterbildungseinrichtungen für Personen mit abgeschlossener Berufsausbildung. In ein- oder zweijährigen Bildungsgängen qualifizieren sie für Tätigkeiten im mittleren Management oder für die berufliche Selbstständigkeit. An zweijährigen Fachschulen kann auch die Fachhochschulreife erworben werden." },
-    { name: "SBBZ", full: "Sonderpädagogische Bildungs- und Beratungszentren", description: "SBBZ sind spezialisierte Schulen für Kinder und Jugendliche mit besonderem Förderbedarf. Sie bieten individuelle Unterstützung und bereiten auf verschiedene Bildungswege vor, einschließlich beruflicher Qualifikation." },
-    { name: "BVE", full: "Berufsvorbereitende Einrichtung", description: "Die BVE richtet sich an Jugendliche mit besonderem Förderbedarf und bereitet gezielt auf eine berufliche Tätigkeit vor. Sie ist oft der erste Schritt nach dem SBBZ." },
-    { name: "KoBV", full: "Kooperative berufliche Bildung und Vorbereitung", description: "KoBV ermöglicht Menschen mit Behinderung den Übergang von der BVE in eine berufliche Ausbildung oder Beschäftigung durch intensive Begleitung und Unterstützung." }
+{ name: "Hauptschulabschluss", full: "Erster allgemeinbildender Schulabschluss", description: "Der Hauptschulabschluss ist der erste allgemeinbildende Schulabschluss in Deutschland. Er wird nach erfolgreichem Abschluss der 9. Klasse erworben und ermöglicht den Zugang zu einer Berufsausbildung oder weiteren schulischen Bildungswegen." },
+{ name: "Mittlere Reife", full: "Mittlerer Bildungsabschluss", description: "Die Mittlere Reife (auch Realschulabschluss genannt) wird nach der 10. Klasse erworben. Dieser Abschluss qualifiziert für anspruchsvollere Berufsausbildungen und ermöglicht den Zugang zu weiterführenden Schulen wie Berufskolleg oder beruflichem Gymnasium." },
+{ name: "Fachhochschulreife", full: "Fachabitur", description: "Die Fachhochschulreife berechtigt zum Studium an Fachhochschulen und manchen Universitäten. Sie kann an Berufskollegs, Fachoberschulen oder beruflichen Gymnasien erworben werden und kombiniert oft theoretisches Wissen mit praktischen Erfahrungen." },
+{ name: "Abitur", full: "Allgemeine Hochschulreife", description: "Das Abitur ist der höchste Schulabschluss in Deutschland und berechtigt zum Studium an allen Universitäten und Hochschulen. Es kann an allgemeinbildenden oder beruflichen Gymnasien erworben werden." },
+{ name: "AVdual", full: "Ausbildungsvorbereitung dual", description: "AVdual ist ein Bildungsgang für Jugendliche ohne Ausbildungsplatz. Er kombiniert schulisches Lernen mit praktischen Erfahrungen in Betrieben und bereitet gezielt auf eine Berufsausbildung vor. Gleichzeitig kann der Hauptschulabschluss erworben oder verbessert werden." },
+{ name: "VABO", full: "Vorqualifizierungsjahr Arbeit/Beruf mit Schwerpunkt Erwerb von Deutschkenntnissen", description: "Das VABO richtet sich an Jugendliche ohne ausreichende Deutschkenntnisse. Es vermittelt Sprachkenntnisse und berufliche Orientierung, um den Zugang zum deutschen Bildungssystem und Arbeitsmarkt zu erleichtern." },
+{ name: "Berufskolleg", full: "Berufliche Vollzeitschule", description: "Das Berufskolleg ist eine berufliche Vollzeitschule, die zur Fachhochschulreife führt und gleichzeitig berufliche Kenntnisse vermittelt. Es gibt verschiedene Fachrichtungen wie Wirtschaft, Technik oder Gesundheit." },
+{ name: "Berufliches Gymnasium", full: "Weg zum Abitur mit Profil", description: "Das berufliche Gymnasium führt zur allgemeinen Hochschulreife (Abitur) und verbindet allgemeinbildende Fächer mit berufsbezogenen Schwerpunkten wie Wirtschaft, Technik oder Gesundheit." },
+{ name: "Duale Ausbildung", full: "Betriebliche Ausbildung", description: "Die duale Ausbildung kombiniert praktische Arbeit im Betrieb mit theoretischem Unterricht in der Berufsschule. Sie dauert in der Regel 2-3,5 Jahre und führt zu einem anerkannten Berufsabschluss." },
+{ name: "Meister/Techniker/Fachwirt", full: "Fortbildungsabschlüsse", description: "Diese Fortbildungsabschlüsse bauen auf einer abgeschlossenen Berufsausbildung auf und qualifizieren für Führungspositionen oder Selbstständigkeit. Sie sind dem Bachelor-Niveau gleichgestellt und ermöglichen auch ein Hochschulstudium." },
+{ name: "1BFS", full: "1-jährige Berufsfachschule", description: "Die einjährige Berufsfachschule vermittelt berufliche Grundbildung in bestimmten Berufsfeldern wie Metalltechnik, Bautechnik oder Hauswirtschaft. Sie kann bei einer Ausbildungsplatzzusage als erstes Ausbildungsjahr angerechnet werden. Ohne Hauptschulabschluss wird mit erfolgreichem Abschluss ein gleichwertiger Bildungsstand erworben." },
+{ name: "2BFS", full: "2-jährige Berufsfachschule", description: "Die 2BFS baut auf dem Hauptschulabschluss auf und führt zur Fachschulreife (mittlerer Bildungsabschluss). Sie vermittelt berufliche Grundbildung in drei Bereichen: kaufmännisch, gewerblich-technisch oder Ernährung und Gesundheit." },
+{ name: "BAS", full: "Berufsaufbauschule", description: "Die Berufsaufbauschule ist die Mittelstufe der Berufsoberschule. Mit Hauptschulabschluss und abgeschlossener Berufsausbildung kann hier in einem Jahr der mittlere Bildungsabschluss (Fachschulreife) erworben werden." },
+{ name: "BOS", full: "Berufsoberschule", description: "Die Berufsoberschule richtet sich an Personen mit abgeschlossener Berufsausbildung. Die zweijährige Oberstufe führt zur fachgebundenen Hochschulreife oder -- bei Erwerb einer zweiten Fremdsprache -- zur allgemeinen Hochschulreife." },
+{ name: "Modell 9+3", full: "Mittlere Reife durch Ausbildung", description: "Ein besonderer Weg zum mittleren Bildungsabschluss: 9 Jahre Haupt-/Werkrealschule + 3 Jahre Berufsausbildung. Bei einem Notendurchschnitt von mindestens 2,5 (aus Hauptschulabschlussprüfung, Berufsschulabschluss und Prüfung im Ausbildungsberuf) wird ein dem Realschulabschluss gleichwertiger Bildungsstand zuerkannt." },
+{ name: "Fachschule", full: "Weiterbildung nach Ausbildung", description: "Fachschulen sind Weiterbildungseinrichtungen für Personen mit abgeschlossener Berufsausbildung. In ein- oder zweijährigen Bildungsgängen qualifizieren sie für Tätigkeiten im mittleren Management oder für die berufliche Selbstständigkeit. An zweijährigen Fachschulen kann auch die Fachhochschulreife erworben werden." }
 ];
 
 function initGlossary() {
-    const container = document.getElementById('glossar-container');
-    if(!container) return;
-    glossarDaten.sort((a, b) => a.name.localeCompare(b.name));
-    glossarDaten.forEach((term) => {
-        const item = document.createElement('div');
-        item.className = 'accordion-item glossary-term'; 
-        item.innerHTML = `<div class="accordion-header" onclick="toggleAccordion(this)">${term.name} <span style="font-size:0.8rem">▼</span></div><div class="accordion-content"><p><strong>${term.full}</strong></p><p>${term.description}</p></div>`;
-        container.appendChild(item);
-    });
+const container = document.getElementById('glossar-container');
+if(!container) return;
+glossarDaten.sort((a, b) => a.name.localeCompare(b.name));
+glossarDaten.forEach((term) => {
+const item = document.createElement('div');
+item.className = 'accordion-item glossary-term';
+item.innerHTML = `<div class="accordion-header" onclick="toggleAccordion(this)">${term.name} <span style="font-size:0.8rem">▼</span></div><div class="accordion-content"><p><strong>${term.full}</strong></p><p>${term.description}</p></div>`;
+container.appendChild(item);
+});
 }
 
 function toggleAccordion(header) {
-    header.parentElement.classList.toggle('active');
-    header.querySelector('span').innerText = header.parentElement.classList.contains('active') ? '▲' : '▼';
+header.parentElement.classList.toggle('active');
+header.querySelector('span').innerText = header.parentElement.classList.contains('active') ? '▲' : '▼';
 }
 
 function filterGlossar() {
-    const search = document.getElementById('glossar-search').value.toLowerCase();
-    document.querySelectorAll('.glossary-term').forEach(item => {
-        item.style.display = item.innerText.toLowerCase().includes(search) ? 'block' : 'none';
-    });
+const search = document.getElementById('glossar-search').value.toLowerCase();
+document.querySelectorAll('.glossary-term').forEach(item => {
+item.style.display = item.innerText.toLowerCase().includes(search) ? 'block' : 'none';
+});
 }
 
 // ==========================================
-// 2. VOLLSTÄNDIGE BILDUNGSWEGE LOGIK
+// 2. BILDUNGSWEGE TOOL LOGIC (UPDATED WITH REFERENCE DATA)
 // ==========================================
-const bildungswege = {
+
+const paths = {
   // ============ OHNE ABSCHLUSS ============
   ohneAbschluss: {
     hauptschulabschluss: [
@@ -772,231 +770,147 @@ const bildungswege = {
 };
 
 function showPaths() {
-    const start = document.getElementById('start').value;
-    const ziel = document.getElementById('ziel').value;
-    const resultDiv = document.getElementById('result');
-    const visStart = document.getElementById('vis-start');
-    const visTarget = document.getElementById('vis-target');
+const start = document.getElementById("start").value;
+const ziel = document.getElementById("ziel").value;
+const resultDiv = document.getElementById("result");
 
-    // Visualisierung aktualisieren
-    if (start) {
-        visStart.textContent = '✓';
-        visStart.style.background = '#007bff';
-        visStart.style.color = 'white';
-    }
-    if (ziel) {
-        visTarget.textContent = '✓';
-        visTarget.style.background = '#28a745';
-        visTarget.style.color = 'white';
-    }
+if (!start || !ziel) {
+resultDiv.innerHTML = '<div class="path-card" style="border-left-color:orange"><p>Bitte Start und Ziel auswählen.</p></div>';
+return;
+}
 
-    if (!start || !ziel) {
-        resultDiv.innerHTML = '<div style="padding:1rem; background:#fff3cd; border-left:4px solid #ffc107; border-radius:4px; margin-top:1rem;">⚠️ Bitte wähle sowohl Start als auch Ziel aus.</div>';
-        return;
-    }
+// Fallback logic if path doesn't exist explicitly
+const availablePaths = paths[start]?.[ziel] || [];
 
-    const key = `${start}-${ziel}`;
-    const paths = bildungswege[key];
+if (availablePaths.length === 0) {
+resultDiv.innerHTML = '<div class="path-card" style="border-left-color:red"><p>Kein direkter Standardweg gefunden. Bitte wählen Sie einen Zwischenschritt (z.B. erst Mittlere Reife).</p></div>';
+return;
+}
 
-    if (!paths || paths.length === 0) {
-        resultDiv.innerHTML = `
-            <div style="padding:1rem; background:#f8d7da; border-left:4px solid #dc3545; border-radius:4px; margin-top:1rem;">
-                <strong>❌ Kein direkter Bildungsweg gefunden</strong>
-                <p style="margin:0.5rem 0 0 0;">Von diesem Startpunkt zu diesem Ziel gibt es keinen standardisierten Bildungsweg im System Baden-Württemberg. Möglicherweise ist ein Zwischenschritt erforderlich.</p>
-            </div>
-        `;
-        return;
-    }
+let html = `<h3>${availablePaths.length} Weg(e) gefunden:</h3>`;
 
-    let html = `
-        <div style="background:#d4edda; border-left:4px solid #28a745; padding:1rem; border-radius:4px; margin:1rem 0;">
-            <strong>✅ ${paths.length} Bildungsweg${paths.length > 1 ? 'e' : ''} gefunden</strong>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:1rem;">
-    `;
+availablePaths.forEach((path, index) => {
+html += `
+<div class="path-card ${path.recommended ? 'recommended' : ''}">
+<div class="path-title">
+${index + 1}. ${path.title}
+${path.duration ? `<span class="duration-badge">⏱️ ${path.duration}</span>` : ''}
+</div>
+<div class="path-steps">
+${path.steps.map((step, i) =>
+`<span class="step">${step}</span>` + (i < path.steps.length - 1 ? '<span class="arrow">→</span>' : '')
+).join('')}
+</div>
+${path.note ? `<p style="margin-top:10px; color:#666; font-size:0.9rem">ℹ️ ${path.note}</p>` : ''}
+</div>
+`;
+});
 
-    paths.forEach((pathObj, index) => {
-        html += `
-            <div class="path-card">
-                <div class="path-title">
-                    <span style="background:#007bff; color:white; width:32px; height:32px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:bold; margin-right:0.5rem;">${index + 1}</span>
-                    Weg ${index + 1}
-                    ${pathObj.duration ? `<span class="duration-badge">⏱️ ${pathObj.duration}</span>` : ''}
-                </div>
-                <div style="color:#555; line-height:1.8; margin:0.75rem 0;">
-                    ${pathObj.path}
-                </div>
-                ${pathObj.note ? `<div style="background:#f8f9fa; padding:0.75rem; border-radius:4px; margin-top:0.5rem; font-size:0.9rem; color:#666;">
-                    <strong>ℹ️ Hinweis:</strong> ${pathObj.note}
-                </div>` : ''}
-            </div>
-        `;
-    });
-
-    html += '</div>';
-    resultDiv.innerHTML = html;
+resultDiv.innerHTML = html;
 }
 
 function resetPaths() {
-    document.getElementById('start').value = '';
-    document.getElementById('ziel').value = '';
-    document.getElementById('result').innerHTML = '';
-
-    const visStart = document.getElementById('vis-start');
-    const visTarget = document.getElementById('vis-target');
-
-    visStart.textContent = '?';
-    visStart.style.background = '#ddd';
-    visStart.style.color = '#666';
-    visTarget.textContent = '?';
-    visTarget.style.background = '#ddd';
-    visTarget.style.color = '#666';
+document.getElementById("start").value = "";
+document.getElementById("ziel").value = "";
+document.getElementById("result").innerHTML = "";
+updateVisuals();
 }
 
 function updateVisuals() {
-    const start = document.getElementById('start');
-    const ziel = document.getElementById('ziel');
-    const visStart = document.getElementById('vis-start');
-    const visTarget = document.getElementById('vis-target');
-
-    if (start && start.value) {
-        visStart.textContent = '✓';
-        visStart.style.background = '#007bff';
-        visStart.style.color = 'white';
-    } else {
-        visStart.textContent = '?';
-        visStart.style.background = '#ddd';
-        visStart.style.color = '#666';
-    }
-
-    if (ziel && ziel.value) {
-        visTarget.textContent = '✓';
-        visTarget.style.background = '#28a745';
-        visTarget.style.color = 'white';
-    } else {
-        visTarget.textContent = '?';
-        visTarget.style.background = '#ddd';
-        visTarget.style.color = '#666';
-    }
+const s = document.getElementById('start');
+const z = document.getElementById('ziel');
+const sVal = s.options[s.selectedIndex].text;
+const zVal = z.options[z.selectedIndex].text;
+document.getElementById('vis-start').innerText = s.value ? "✓" : "?";
+document.getElementById('vis-target').innerText = z.value ? "✓" : "?";
 }
 
 // ==========================================
-// 3. QUIZ LOGIC
+// 3. QUIZ LOGIC (EXTRACTED FROM BWT)
 // ==========================================
+
 const quizQuestions = [
-    {
-        question: "Was machst du gerne in deiner Freizeit?",
-        type: "multiple",
-        options: [
-            { text: "Mit dem Computer arbeiten", value: "it" },
-            { text: "Sport treiben oder draußen sein", value: "outdoor" },
-            { text: "Basteln oder etwas bauen", value: "handwerk" },
-            { text: "Lesen oder schreiben", value: "kommunikation" },
-            { text: "Anderen helfen", value: "sozial" }
-        ],
-        key: "interests"
-    },
-    {
-        question: "Wie arbeitest du am liebsten?",
-        type: "single",
-        options: [
-            { text: "Mit meinen Händen / praktisch", value: "handwerk" },
-            { text: "Mit Menschen zusammen", value: "sozial" },
-            { text: "Am Computer", value: "it" },
-            { text: "Im Büro / am Schreibtisch", value: "buero" }
-        ],
-        key: "workType"
-    },
-    {
-        question: "Welcher Bereich interessiert dich am meisten?",
-        type: "single",
-        options: [
-            { text: "Technik & Maschinen", value: "technik" },
-            { text: "Gesundheit & Pflege", value: "gesundheit" },
-            { text: "Wirtschaft & Handel", value: "wirtschaft" },
-            { text: "IT & Digitales", value: "it" }
-        ],
-        key: "field"
-    }
+{
+question: "Was machst du gerne in deiner Freizeit?",
+type: "multiple",
+options: [
+{ text: "Mit dem Computer arbeiten", value: "it" },
+{ text: "Sport treiben oder draußen sein", value: "outdoor" },
+{ text: "Basteln oder etwas bauen", value: "handwerk" },
+{ text: "Lesen oder schreiben", value: "kommunikation" },
+{ text: "Anderen helfen", value: "sozial" }
+],
+key: "interests"
+},
+{
+question: "Wie arbeitest du am liebsten?",
+type: "single",
+options: [
+{ text: "Mit meinen Händen / praktisch", value: "handwerk" },
+{ text: "Mit Menschen zusammen", value: "sozial" },
+{ text: "Am Computer", value: "it" },
+{ text: "Im Büro / am Schreibtisch", value: "buero" }
+],
+key: "workType"
+},
+{
+question: "Welcher Bereich interessiert dich am meisten?",
+type: "single",
+options: [
+{ text: "Technik & Maschinen", value: "technik" },
+{ text: "Gesundheit & Pflege", value: "gesundheit" },
+{ text: "Wirtschaft & Handel", value: "wirtschaft" },
+{ text: "IT & Digitales", value: "it" }
+],
+key: "field"
+}
 ];
 
 const QuizApp = {
-    currentQ: 0,
-    answers: [],
-    start: function() {
-        this.currentQ = 0;
-        this.answers = [];
-        document.getElementById('quiz-start').style.display = 'none';
-        document.getElementById('quiz-question-container').style.display = 'block';
-        this.showQuestion();
-    },
-    showQuestion: function() {
-        const q = quizQuestions[this.currentQ];
-        document.getElementById('quiz-question-text').innerText = q.question;
-        const c = document.getElementById('quiz-options-container');
-        c.innerHTML = '';
-        q.options.forEach(opt => {
-            const btn = document.createElement('div');
-            btn.className = 'quiz-option';
-            btn.innerText = opt.text;
-            btn.onclick = () => this.handleAnswer(opt.value);
-            c.appendChild(btn);
-        });
-        document.getElementById('quiz-progress-fill').style.width = ((this.currentQ / quizQuestions.length) * 100) + '%';
-    },
-    handleAnswer: function(val) {
-        this.answers.push(val);
-        this.currentQ++;
-        if (this.currentQ < quizQuestions.length) this.showQuestion();
-        else this.showResults();
-    },
-    showResults: function() {
-        document.getElementById('quiz-question-container').style.display = 'none';
-        document.getElementById('quiz-results').style.display = 'block';
-
-        // Ergebnis-Logik
-        const field = this.answers[2] || 'wirtschaft';
-        const workStyle = this.answers[1] || 'handwerk';
-
-        let recommendations = '';
-        if (field === 'technik') {
-            recommendations = '<li>Industriemechaniker/in</li><li>Elektroniker/in</li><li>Mechatroniker/in</li>';
-        } else if (field === 'gesundheit') {
-            recommendations = '<li>Gesundheits- und Krankenpfleger/in</li><li>Medizinische/r Fachangestellte/r</li><li>Physiotherapeut/in</li>';
-        } else if (field === 'it') {
-            recommendations = '<li>Fachinformatiker/in</li><li>IT-Systemelektroniker/in</li><li>Kaufmann/-frau für Digitalisierungsmanagement</li>';
-        } else {
-            recommendations = '<li>Kaufmann/-frau für Büromanagement</li><li>Einzelhandelskaufmann/-frau</li><li>Industriekaufmann/-frau</li>';
-        }
-
-        document.getElementById('quiz-result-list').innerHTML = `
-            <div style="background:white; padding:1.5rem; border-radius:8px; border:1px solid #e0e0e0;">
-                <h4 style="color:#007bff; margin-bottom:1rem;">🎯 Deine Berufsempfehlungen im Bereich ${field}</h4>
-                <p style="margin-bottom:1rem;">Basierend auf deinen Antworten passen folgende Berufe gut zu dir:</p>
-                <ul style="line-height:1.8;">${recommendations}</ul>
-                <p style="margin-top:1rem; color:#666; font-size:0.9rem;">💡 Tipp: Nutze das Bildungswege-Tool oben, um herauszufinden, welcher Weg dich zu diesen Berufen führt!</p>
-            </div>
-        `;
-    },
-    reset: function() {
-        document.getElementById('quiz-results').style.display = 'none';
-        document.getElementById('quiz-start').style.display = 'block';
-        document.getElementById('quiz-progress-fill').style.width = '0%';
-    }
+currentQ: 0,
+answers: [],
+start: function() {
+this.currentQ = 0;
+this.answers = [];
+document.getElementById('quiz-start').style.display = 'none';
+document.getElementById('quiz-question-container').style.display = 'block';
+this.showQuestion();
+},
+showQuestion: function() {
+const q = quizQuestions[this.currentQ];
+document.getElementById('quiz-question-text').innerText = q.question;
+const c = document.getElementById('quiz-options-container');
+c.innerHTML = '';
+q.options.forEach(opt => {
+const btn = document.createElement('div');
+btn.className = 'quiz-option';
+btn.innerText = opt.text;
+btn.onclick = () => this.handleAnswer(opt.value);
+c.appendChild(btn);
+});
+document.getElementById('quiz-progress-fill').style.width = ((this.currentQ / quizQuestions.length) * 100) + '%';
+},
+handleAnswer: function(val) {
+this.answers.push(val);
+this.currentQ++;
+if (this.currentQ < quizQuestions.length) this.showQuestion();
+else this.showResults();
+},
+showResults: function() {
+document.getElementById('quiz-question-container').style.display = 'none';
+document.getElementById('quiz-results').style.display = 'block';
+// Mock result logic
+const field = this.answers[2] || 'wirtschaft';
+document.getElementById('quiz-result-list').innerHTML = `<div class='beruf-card'><h4>Ergebnis für ${field}</h4><p>Basierend auf deinen Antworten (z.B. ${this.answers[0]}) empfehlen wir Berufe im Bereich ${field}.</p></div>`;
+},
+reset: function() {
+document.getElementById('quiz-results').style.display = 'none';
+document.getElementById('quiz-start').style.display = 'block';
+}
 };
 
-// ==========================================
-// INITIALISIERUNG
-// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    initGlossary();
-
-    const startSelect = document.getElementById('start');
-    const zielSelect = document.getElementById('ziel');
-
-    if (startSelect) startSelect.addEventListener('change', updateVisuals);
-    if (zielSelect) zielSelect.addEventListener('change', updateVisuals);
-
-    // Initiale Visualisierung
-    updateVisuals();
+initGlossary();
+document.getElementById('start')?.addEventListener('change', updateVisuals);
+document.getElementById('ziel')?.addEventListener('change', updateVisuals);
 });
