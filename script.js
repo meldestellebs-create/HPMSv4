@@ -1,6 +1,4 @@
 // ==================== PATHS DATABASE ====================
-// KORRIGIERT: Alle "studium"-Keys wurden zu "bachelor" geändert (HTML-Konsistenz)
-
 const paths = {
   // ============ OHNE ABSCHLUSS ============
   ohneAbschluss: {
