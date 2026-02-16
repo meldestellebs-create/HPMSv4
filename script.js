@@ -1,53 +1,59 @@
 
-// ==========================================
-// 1. GLOSSAR DATEN (EXAKT AUS DOCX)
-// ==========================================
-const glossarDaten = [
-{ name: "Hauptschulabschluss", full: "Erster allgemeinbildender Schulabschluss", description: "Der Hauptschulabschluss ist der erste allgemeinbildende Schulabschluss in Deutschland. Er wird nach erfolgreichem Abschluss der 9. Klasse erworben und ermöglicht den Zugang zu einer Berufsausbildung oder weiteren schulischen Bildungswegen." },
-{ name: "Mittlere Reife", full: "Mittlerer Bildungsabschluss", description: "Die Mittlere Reife (auch Realschulabschluss genannt) wird nach der 10. Klasse erworben. Dieser Abschluss qualifiziert für anspruchsvollere Berufsausbildungen und ermöglicht den Zugang zu weiterführenden Schulen wie Berufskolleg oder beruflichem Gymnasium." },
-{ name: "Fachhochschulreife", full: "Fachabitur", description: "Die Fachhochschulreife berechtigt zum Studium an Fachhochschulen und manchen Universitäten. Sie kann an Berufskollegs, Fachoberschulen oder beruflichen Gymnasien erworben werden und kombiniert oft theoretisches Wissen mit praktischen Erfahrungen." },
-{ name: "Abitur", full: "Allgemeine Hochschulreife", description: "Das Abitur ist der höchste Schulabschluss in Deutschland und berechtigt zum Studium an allen Universitäten und Hochschulen. Es kann an allgemeinbildenden oder beruflichen Gymnasien erworben werden." },
-{ name: "AVdual", full: "Ausbildungsvorbereitung dual", description: "AVdual ist ein Bildungsgang für Jugendliche ohne Ausbildungsplatz. Er kombiniert schulisches Lernen mit praktischen Erfahrungen in Betrieben und bereitet gezielt auf eine Berufsausbildung vor. Gleichzeitig kann der Hauptschulabschluss erworben oder verbessert werden." },
-{ name: "VABO", full: "Vorqualifizierungsjahr Arbeit/Beruf mit Schwerpunkt Erwerb von Deutschkenntnissen", description: "Das VABO richtet sich an Jugendliche ohne ausreichende Deutschkenntnisse. Es vermittelt Sprachkenntnisse und berufliche Orientierung, um den Zugang zum deutschen Bildungssystem und Arbeitsmarkt zu erleichtern." },
-{ name: "Berufskolleg", full: "Berufliche Vollzeitschule", description: "Das Berufskolleg ist eine berufliche Vollzeitschule, die zur Fachhochschulreife führt und gleichzeitig berufliche Kenntnisse vermittelt. Es gibt verschiedene Fachrichtungen wie Wirtschaft, Technik oder Gesundheit." },
-{ name: "Berufliches Gymnasium", full: "Weg zum Abitur mit Profil", description: "Das berufliche Gymnasium führt zur allgemeinen Hochschulreife (Abitur) und verbindet allgemeinbildende Fächer mit berufsbezogenen Schwerpunkten wie Wirtschaft, Technik oder Gesundheit." },
-{ name: "Duale Ausbildung", full: "Betriebliche Ausbildung", description: "Die duale Ausbildung kombiniert praktische Arbeit im Betrieb mit theoretischem Unterricht in der Berufsschule. Sie dauert in der Regel 2-3,5 Jahre und führt zu einem anerkannten Berufsabschluss." },
-{ name: "Meister/Techniker/Fachwirt", full: "Fortbildungsabschlüsse", description: "Diese Fortbildungsabschlüsse bauen auf einer abgeschlossenen Berufsausbildung auf und qualifizieren für Führungspositionen oder Selbstständigkeit. Sie sind dem Bachelor-Niveau gleichgestellt und ermöglichen auch ein Hochschulstudium." },
-{ name: "1BFS", full: "1-jährige Berufsfachschule", description: "Die einjährige Berufsfachschule vermittelt berufliche Grundbildung in bestimmten Berufsfeldern wie Metalltechnik, Bautechnik oder Hauswirtschaft. Sie kann bei einer Ausbildungsplatzzusage als erstes Ausbildungsjahr angerechnet werden. Ohne Hauptschulabschluss wird mit erfolgreichem Abschluss ein gleichwertiger Bildungsstand erworben." },
-{ name: "2BFS", full: "2-jährige Berufsfachschule", description: "Die 2BFS baut auf dem Hauptschulabschluss auf und führt zur Fachschulreife (mittlerer Bildungsabschluss). Sie vermittelt berufliche Grundbildung in drei Bereichen: kaufmännisch, gewerblich-technisch oder Ernährung und Gesundheit." },
-{ name: "BAS", full: "Berufsaufbauschule", description: "Die Berufsaufbauschule ist die Mittelstufe der Berufsoberschule. Mit Hauptschulabschluss und abgeschlossener Berufsausbildung kann hier in einem Jahr der mittlere Bildungsabschluss (Fachschulreife) erworben werden." },
-{ name: "BOS", full: "Berufsoberschule", description: "Die Berufsoberschule richtet sich an Personen mit abgeschlossener Berufsausbildung. Die zweijährige Oberstufe führt zur fachgebundenen Hochschulreife oder -- bei Erwerb einer zweiten Fremdsprache -- zur allgemeinen Hochschulreife." },
-{ name: "Modell 9+3", full: "Mittlere Reife durch Ausbildung", description: "Ein besonderer Weg zum mittleren Bildungsabschluss: 9 Jahre Haupt-/Werkrealschule + 3 Jahre Berufsausbildung. Bei einem Notendurchschnitt von mindestens 2,5 (aus Hauptschulabschlussprüfung, Berufsschulabschluss und Prüfung im Ausbildungsberuf) wird ein dem Realschulabschluss gleichwertiger Bildungsstand zuerkannt." },
-{ name: "Fachschule", full: "Weiterbildung nach Ausbildung", description: "Fachschulen sind Weiterbildungseinrichtungen für Personen mit abgeschlossener Berufsausbildung. In ein- oder zweijährigen Bildungsgängen qualifizieren sie für Tätigkeiten im mittleren Management oder für die berufliche Selbstständigkeit. An zweijährigen Fachschulen kann auch die Fachhochschulreife erworben werden." }
-];
+// ==================== TAB SWITCHING ====================
+function switchTab(tabName) {
+  // Hide all tabs
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Remove active from all buttons
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Show selected tab
+  document.getElementById(tabName + '-tab').classList.add('active');
+  
+  // Mark button as active
+  event.target.classList.add('active');
+}
 
-function initGlossary() {
-const container = document.getElementById('glossar-container');
-if(!container) return;
-glossarDaten.sort((a, b) => a.name.localeCompare(b.name));
-glossarDaten.forEach((term) => {
-const item = document.createElement('div');
-item.className = 'accordion-item glossary-term';
-item.innerHTML = `<div class="accordion-header" onclick="toggleAccordion(this)">${term.name} <span style="font-size:0.8rem">▼</span></div><div class="accordion-content"><p><strong>${term.full}</strong></p><p>${term.description}</p></div>`;
-container.appendChild(item);
+// ==================== VISUAL UPDATE ====================
+function updateVisuals() {
+  const startSelect = document.getElementById('start');
+  const zielSelect = document.getElementById('ziel');
+  
+  const startText = startSelect.options[startSelect.selectedIndex]?.text || 'Nicht gewählt';
+  const zielText = zielSelect.options[zielSelect.selectedIndex]?.text || 'Nicht gewählt';
+  
+  // Update visual circles
+  const visualStart = document.getElementById('visual-start');
+  const visualTarget = document.getElementById('visual-target');
+  
+  if (startSelect.value) {
+    visualStart.textContent = '✓';
+  } else {
+    visualStart.textContent = '?';
+  }
+  
+  if (zielSelect.value) {
+    visualTarget.textContent = '✓';
+  } else {
+    visualTarget.textContent = '?';
+  }
+  
+  // Update text labels
+  document.getElementById('visual-start-text').textContent = startText === '-- Bitte wählen --' ? 'Nicht gewählt' : startText.substring(0, 30) + (startText.length > 30 ? '...' : '');
+  document.getElementById('visual-target-text').textContent = zielText === '-- Bitte wählen --' ? 'Nicht gewählt' : zielText.substring(0, 30) + (zielText.length > 30 ? '...' : '');
+}
+
+// Add event listeners to selects
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('start').addEventListener('change', updateVisuals);
+  document.getElementById('ziel').addEventListener('change', updateVisuals);
 });
-}
 
-function toggleAccordion(header) {
-header.parentElement.classList.toggle('active');
-header.querySelector('span').innerText = header.parentElement.classList.contains('active') ? '▲' : '▼';
-}
-
-function filterGlossar() {
-const search = document.getElementById('glossar-search').value.toLowerCase();
-document.querySelectorAll('.glossary-term').forEach(item => {
-item.style.display = item.innerText.toLowerCase().includes(search) ? 'block' : 'none';
-});
-}
-
-// ==========================================
-// 2. BILDUNGSWEGE TOOL LOGIC (UPDATED WITH REFERENCE DATA)
-// ==========================================
+// ==================== BILDUNGSWEGE DATENBANK ====================
 
 const paths = {
   // ============ OHNE ABSCHLUSS ============
@@ -769,148 +775,450 @@ const paths = {
   }
 };
 
+// ==================== AUTOMATISCHE WEGE-ABLEITUNG UND ERGÄNZUNG ====================
+// Funktion zur Ergänzung fehlender Wege durch logische Ableitung
+function erweiterePathsMitAbleitungen() {
+  // Äquivalenz-Gruppen definieren
+  const aequivalenzGruppen = {
+    ohneAbschluss: ['ohneAbschluss'],  // Basis
+    // Weitere Gruppen werden unten manuell verarbeitet
+  };
+  
+  // VABO-spezifische Ergänzungen - VABO braucht immer +1 Jahr für Deutschförderung
+  // Fehlende Wege für VABO ergänzen, basierend auf ohneAbschluss
+  const ohneAbschlussPaths = paths.ohneAbschluss;
+  
+  // Prüfe und ergänze fehlende VABO-Wege
+  for (const ziel in ohneAbschlussPaths) {
+    if (!paths.vabo[ziel]) {
+      paths.vabo[ziel] = [];
+    }
+    
+    // Kopiere nur die wichtigsten 2-3 Wege von ohneAbschluss zu VABO
+    const relevantePaths = ohneAbschlussPaths[ziel].filter(p => p.recommended).slice(0, 2);
+    if (relevantePaths.length === 0 && ohneAbschlussPaths[ziel].length > 0) {
+      // Falls keine empfohlenen Wege, nimm die ersten 2
+      relevantePaths.push(...ohneAbschlussPaths[ziel].slice(0, 2));
+    }
+    
+    relevantePaths.forEach(originalPath => {
+      // Verbesserte Duplikatsprüfung: Prüfe auf ähnliche Steps
+      const existiert = paths.vabo[ziel].some(existingPath => {
+        // Vergleiche die zweiten Steps (nach VABO)
+        if (existingPath.steps.length < 2 || originalPath.steps.length < 2) return false;
+        const existingSecondStep = existingPath.steps[1].toLowerCase();
+        const originalSecondStep = originalPath.steps[1].toLowerCase();
+        // Prüfe ob die Steps sehr ähnlich sind
+        return existingSecondStep.includes(originalSecondStep.substring(0, 10)) || 
+               originalSecondStep.includes(existingSecondStep.substring(0, 10));
+      });
+      
+      if (!existiert) {
+        // Erstelle VABO-Version mit angepassten Steps
+        const vaboPath = {
+          title: "VABO → " + originalPath.title,
+          steps: ["VABO (Deutschförderung B1)", ...originalPath.steps.slice(1)],
+          duration: erhoeheZeit(originalPath.duration, 1),
+          note: "Nach VABO-Deutschförderung: " + originalPath.note,
+          recommended: originalPath.recommended
+        };
+        paths.vabo[ziel].push(vaboPath);
+      }
+    });
+  }
+  
+  // SBBZ-spezifische Ergänzungen
+  for (const ziel in ohneAbschlussPaths) {
+    if (!paths.sbbz[ziel]) {
+      paths.sbbz[ziel] = [];
+    }
+    
+    // Nur realistische Wege für SBBZ (nicht alle ohneAbschluss-Wege)
+    // Ziele die SBBZ erreichen kann: hauptschulabschluss, mittlereReife, berufsabschluss
+    // und mit Unterstützung auch fachhochschulreife, abitur
+    const sbbzRealistische = ['hauptschulabschluss', 'mittlereReife', 'berufsabschluss', 'fachhochschulreife'];
+    
+    if (sbbzRealistische.includes(ziel) || ziel.includes('bve') || ziel.includes('vabKF') || ziel.includes('sonderberufsschule')) {
+      const relevantePaths = ohneAbschlussPaths[ziel].filter(p => p.recommended).slice(0, 2);
+      if (relevantePaths.length === 0 && ohneAbschlussPaths[ziel].length > 0) {
+        relevantePaths.push(...ohneAbschlussPaths[ziel].slice(0, 2));
+      }
+      
+      relevantePaths.forEach(originalPath => {
+        // Verbesserte Duplikatsprüfung für SBBZ
+        const existiert = paths.sbbz[ziel].some(existingPath => {
+          // Vergleiche die zweiten Steps (nach SBBZ)
+          if (existingPath.steps.length < 2 || originalPath.steps.length < 2) return false;
+          const existingSecondStep = existingPath.steps[1].toLowerCase();
+          const originalSecondStep = originalPath.steps[1].toLowerCase();
+          // Prüfe ob die Steps sehr ähnlich sind
+          return existingSecondStep.includes(originalSecondStep.substring(0, 10)) || 
+                 originalSecondStep.includes(existingSecondStep.substring(0, 10));
+        });
+        
+        if (!existiert && paths.sbbz[ziel].length < 6) { // Maximal 6 Wege pro Ziel für SBBZ
+          const sbbzPath = {
+            title: originalPath.title + " (mit Unterstützung)",
+            steps: ["SBBZ", ...originalPath.steps.slice(1)],
+            duration: originalPath.duration,
+            note: "Mit individueller Förderung und Unterstützung: " + originalPath.note,
+            recommended: originalPath.recommended
+          };
+          paths.sbbz[ziel].push(sbbzPath);
+        }
+      });
+    }
+  }
+}
+
+// Hilfsfunktion zur Zeiterhöhung
+function erhoeheZeit(dauer, jahre) {
+  if (!dauer) return dauer;
+  const match = dauer.match(/(\d+)(-(\d+))?\s*Jahre?/);
+  if (match) {
+    const min = parseInt(match[1]) + jahre;
+    const max = match[3] ? parseInt(match[3]) + jahre : null;
+    return max ? `${min}-${max} Jahre` : `${min} Jahre`;
+  }
+  return dauer;
+}
+
+// Wege erweitern beim Laden
+erweiterePathsMitAbleitungen();
+
+// ==================== SHOW PATHS FUNCTION ====================
 function showPaths() {
-const start = document.getElementById("start").value;
-const ziel = document.getElementById("ziel").value;
-const resultDiv = document.getElementById("result");
-
-if (!start || !ziel) {
-resultDiv.innerHTML = '<div class="path-card" style="border-left-color:orange"><p>Bitte Start und Ziel auswählen.</p></div>';
-return;
+  const start = document.getElementById("start").value;
+  const ziel = document.getElementById("ziel").value;
+  const resultDiv = document.getElementById("result");
+  
+  if (!start || !ziel) {
+    resultDiv.innerHTML = `
+      <div class="results-container">
+        <div class="results-header">⚠️ Bitte Auswahl treffen</div>
+        <div class="results-content">
+          <div class="info-box">
+            <p><strong>Hinweis:</strong> Bitte wähle sowohl deinen Start als auch dein Ziel aus, um die verfügbaren Bildungswege anzuzeigen.</p>
+          </div>
+        </div>
+      </div>
+    `;
+    return;
+  }
+  
+  const availablePaths = paths[start]?.[ziel];
+  
+  if (!availablePaths || availablePaths.length === 0) {
+    resultDiv.innerHTML = `
+      <div class="results-container">
+        <div class="results-header">ℹ️ Zwischenschritte erforderlich</div>
+        <div class="results-content">
+          <div class="info-box">
+            <p><strong>Für dieses Ziel sind Zwischenschritte notwendig.</strong></p>
+            <p style="margin-top: 12px;"><strong>💡 Tipp:</strong> Wähle zunächst einen Zwischenschritt als Ziel aus (z.B. erst Hauptschulabschluss, dann Mittlere Reife). Mit Abschluss, immer Anschluss!</p>
+          </div>
+        </div>
+      </div>
+    `;
+    return;
+  }
+  
+  let html = `
+    <div class="results-container">
+      <div class="results-header">
+        ✨ ${availablePaths.length} ${availablePaths.length === 1 ? 'Weg gefunden' : 'Wege gefunden'}
+      </div>
+      <div class="results-content">
+  `;
+  
+  availablePaths.forEach((path, index) => {
+    html += `
+      <div class="path-card">
+        <div class="path-card-header">
+          <div class="path-number-badge">${index + 1}</div>
+          <div class="path-title">${path.title}</div>
+          ${path.duration ? `<div class="duration-badge">⏱️ ${path.duration}</div>` : ''}
+        </div>
+        <div class="path-steps">
+    `;
+    
+    path.steps.forEach((step, stepIndex) => {
+      html += `<span class="step">${step}</span>`;
+      if (stepIndex < path.steps.length - 1) {
+        html += `<span class="arrow">→</span>`;
+      }
+    });
+    
+    html += `</div>`;
+    
+    if (path.note) {
+      html += `
+        <div class="path-note">
+          <strong>ℹ️ Hinweis:</strong> ${path.note}
+        </div>
+      `;
+    }
+    
+    html += `</div>`;
+  });
+  
+  html += `
+      <div class="info-box">
+        <p><strong>💡 Wichtig:</strong> Die angezeigten Wege sind die häufigsten Bildungspfade. Es können je nach individueller Situation auch weitere Möglichkeiten bestehen.</p>
+        <p style="margin-top: 10px;"><strong>Beratung nutzen:</strong> Für persönliche Bildungsberatung wende dich an die Berufsberatung der Agentur für Arbeit oder die Schulsozialarbeit.</p>
+      </div>
+    </div>
+  </div>
+  `;
+  
+  resultDiv.innerHTML = html;
+  resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Fallback logic if path doesn't exist explicitly
-const availablePaths = paths[start]?.[ziel] || [];
-
-if (availablePaths.length === 0) {
-resultDiv.innerHTML = '<div class="path-card" style="border-left-color:red"><p>Kein direkter Standardweg gefunden. Bitte wählen Sie einen Zwischenschritt (z.B. erst Mittlere Reife).</p></div>';
-return;
+function reset() {
+  document.getElementById("start").value = "";
+  document.getElementById("ziel").value = "";
+  document.getElementById("result").innerHTML = "";
+  updateVisuals();
 }
 
-let html = `<h3>${availablePaths.length} Weg(e) gefunden:</h3>`;
-
-availablePaths.forEach((path, index) => {
-html += `
-<div class="path-card ${path.recommended ? 'recommended' : ''}">
-<div class="path-title">
-${index + 1}. ${path.title}
-${path.duration ? `<span class="duration-badge">⏱️ ${path.duration}</span>` : ''}
-</div>
-<div class="path-steps">
-${path.steps.map((step, i) =>
-`<span class="step">${step}</span>` + (i < path.steps.length - 1 ? '<span class="arrow">→</span>' : '')
-).join('')}
-</div>
-${path.note ? `<p style="margin-top:10px; color:#666; font-size:0.9rem">ℹ️ ${path.note}</p>` : ''}
-</div>
-`;
-});
-
-resultDiv.innerHTML = html;
-}
-
-function resetPaths() {
-document.getElementById("start").value = "";
-document.getElementById("ziel").value = "";
-document.getElementById("result").innerHTML = "";
-updateVisuals();
-}
-
-function updateVisuals() {
-const s = document.getElementById('start');
-const z = document.getElementById('ziel');
-const sVal = s.options[s.selectedIndex].text;
-const zVal = z.options[z.selectedIndex].text;
-document.getElementById('vis-start').innerText = s.value ? "✓" : "?";
-document.getElementById('vis-target').innerText = z.value ? "✓" : "?";
-}
-
-// ==========================================
-// 3. QUIZ LOGIC (EXTRACTED FROM BWT)
-// ==========================================
-
-const quizQuestions = [
-{
-question: "Was machst du gerne in deiner Freizeit?",
-type: "multiple",
-options: [
-{ text: "Mit dem Computer arbeiten", value: "it" },
-{ text: "Sport treiben oder draußen sein", value: "outdoor" },
-{ text: "Basteln oder etwas bauen", value: "handwerk" },
-{ text: "Lesen oder schreiben", value: "kommunikation" },
-{ text: "Anderen helfen", value: "sozial" }
-],
-key: "interests"
-},
-{
-question: "Wie arbeitest du am liebsten?",
-type: "single",
-options: [
-{ text: "Mit meinen Händen / praktisch", value: "handwerk" },
-{ text: "Mit Menschen zusammen", value: "sozial" },
-{ text: "Am Computer", value: "it" },
-{ text: "Im Büro / am Schreibtisch", value: "buero" }
-],
-key: "workType"
-},
-{
-question: "Welcher Bereich interessiert dich am meisten?",
-type: "single",
-options: [
-{ text: "Technik & Maschinen", value: "technik" },
-{ text: "Gesundheit & Pflege", value: "gesundheit" },
-{ text: "Wirtschaft & Handel", value: "wirtschaft" },
-{ text: "IT & Digitales", value: "it" }
-],
-key: "field"
-}
-];
-
-const QuizApp = {
-currentQ: 0,
-answers: [],
-start: function() {
-this.currentQ = 0;
-this.answers = [];
-document.getElementById('quiz-start').style.display = 'none';
-document.getElementById('quiz-question-container').style.display = 'block';
-this.showQuestion();
-},
-showQuestion: function() {
-const q = quizQuestions[this.currentQ];
-document.getElementById('quiz-question-text').innerText = q.question;
-const c = document.getElementById('quiz-options-container');
-c.innerHTML = '';
-q.options.forEach(opt => {
-const btn = document.createElement('div');
-btn.className = 'quiz-option';
-btn.innerText = opt.text;
-btn.onclick = () => this.handleAnswer(opt.value);
-c.appendChild(btn);
-});
-document.getElementById('quiz-progress-fill').style.width = ((this.currentQ / quizQuestions.length) * 100) + '%';
-},
-handleAnswer: function(val) {
-this.answers.push(val);
-this.currentQ++;
-if (this.currentQ < quizQuestions.length) this.showQuestion();
-else this.showResults();
-},
-showResults: function() {
-document.getElementById('quiz-question-container').style.display = 'none';
-document.getElementById('quiz-results').style.display = 'block';
-// Mock result logic
-const field = this.answers[2] || 'wirtschaft';
-document.getElementById('quiz-result-list').innerHTML = `<div class='beruf-card'><h4>Ergebnis für ${field}</h4><p>Basierend auf deinen Antworten (z.B. ${this.answers[0]}) empfehlen wir Berufe im Bereich ${field}.</p></div>`;
-},
-reset: function() {
-document.getElementById('quiz-results').style.display = 'none';
-document.getElementById('quiz-start').style.display = 'block';
-}
+// ==================== BERUFSWAHL QUIZ ====================
+let quizStarted = false;
+let currentQuestion = 0;
+let answers = {
+  interests: [],
+  workType: '',
+  field: '',
+  activities: []
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-initGlossary();
-document.getElementById('start')?.addEventListener('change', updateVisuals);
-document.getElementById('ziel')?.addEventListener('change', updateVisuals);
+const quizQuestions = [
+  {
+    question: "Was machst du gerne in deiner Freizeit?",
+    type: "multiple",
+    options: [
+      { text: "Mit dem Computer arbeiten", value: "computer" },
+      { text: "Sport treiben oder draußen sein", value: "sport" },
+      { text: "Basteln oder etwas bauen", value: "handwerk" },
+      { text: "Lesen oder schreiben", value: "kommunikation" },
+      { text: "Anderen helfen", value: "sozial" },
+      { text: "Kochen oder backen", value: "gastronomie" }
+    ],
+    key: "interests"
+  },
+  {
+    question: "Wie arbeitest du am liebsten?",
+    type: "single",
+    options: [
+      { text: "Mit meinen Händen / praktisch", value: "handwerk" },
+      { text: "Mit Menschen zusammen", value: "sozial" },
+      { text: "Am Computer", value: "it" },
+      { text: "Im Büro / am Schreibtisch", value: "buero" },
+      { text: "Draußen / in Bewegung", value: "outdoor" }
+    ],
+    key: "workType"
+  },
+  {
+    question: "Welcher Bereich interessiert dich am meisten?",
+    type: "single",
+    options: [
+      { text: "Technik & Maschinen", value: "technik" },
+      { text: "Gesundheit & Pflege", value: "gesundheit" },
+      { text: "Wirtschaft & Handel", value: "wirtschaft" },
+      { text: "Kreatives & Gestaltung", value: "kreativ" },
+      { text: "Natur & Umwelt", value: "natur" },
+      { text: "IT & Digitales", value: "it" }
+    ],
+    key: "field"
+  },
+  {
+    question: "Was würdest du gerne machen?",
+    type: "multiple",
+    options: [
+      { text: "Dinge reparieren", value: "reparieren" },
+      { text: "Verkaufen & beraten", value: "verkauf" },
+      { text: "Pflegen & betreuen", value: "pflege" },
+      { text: "Programmieren", value: "programmieren" },
+      { text: "Gestalten & designen", value: "design" },
+      { text: "Organisieren & planen", value: "organisation" }
+    ],
+    key: "activities"
+  }
+];
+
+function startQuiz() {
+  quizStarted = true;
+  currentQuestion = 0;
+  answers = { interests: [], workType: '', field: '', activities: [] };
+  document.getElementById('quiz-start').style.display = 'none';
+  document.getElementById('quiz-progress-section').style.display = 'block';
+  showQuestion();
+}
+
+function showQuestion() {
+  const question = quizQuestions[currentQuestion];
+  const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
+  document.getElementById('quiz-progress').style.width = progress + '%';
+  
+  let html = `
+    <div class="quiz-question">
+      <div class="quiz-question-number">Frage ${currentQuestion + 1} von ${quizQuestions.length}</div>
+      <h3>${question.question}</h3>
+      <div class="quiz-options">
+  `;
+  
+  question.options.forEach((option, index) => {
+    html += `
+      <div class="quiz-option" onclick="selectOption(${index}, '${question.type}', '${question.key}')">
+        ${option.text}
+      </div>
+    `;
+  });
+  
+  html += `
+      </div>
+      <div class="button-group" style="margin-top: 25px;">
+        ${currentQuestion > 0 ? '<button class="btn btn-secondary" style="flex: 1;" onclick="previousQuestion()">⬅️ Zurück</button>' : ''}
+        <button class="btn btn-primary" style="flex: 2;" onclick="nextQuestion()">
+          ${currentQuestion === quizQuestions.length - 1 ? '🎯 Ergebnis anzeigen' : '➡️ Weiter'}
+        </button>
+      </div>
+      <button class="btn btn-secondary" style="margin-top: 15px; width: 100%;" onclick="restartQuiz()">
+        🔄 Von vorne beginnen
+      </button>
+    </div>
+  `;
+  
+  document.getElementById('quiz-content').innerHTML = html;
+}
+
+function selectOption(index, type, key) {
+  const options = document.querySelectorAll('.quiz-option');
+  const question = quizQuestions[currentQuestion];
+  const value = question.options[index].value;
+  
+  if (type === 'single') {
+    options.forEach(opt => opt.classList.remove('selected'));
+    options[index].classList.add('selected');
+    answers[key] = value;
+  } else {
+    options[index].classList.toggle('selected');
+    if (options[index].classList.contains('selected')) {
+      if (!answers[key].includes(value)) {
+        answers[key].push(value);
+      }
+    } else {
+      answers[key] = answers[key].filter(v => v !== value);
+    }
+  }
+}
+
+function nextQuestion() {
+  if (currentQuestion < quizQuestions.length - 1) {
+    currentQuestion++;
+    showQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function previousQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    showQuestion();
+  }
+}
+
+function showResults() {
+  const berufe = getMatchingBerufe();
+  
+  let html = `
+    <div style="background: var(--bg-white); padding: 40px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+      <h2 style="color: var(--primary-blue); margin-bottom: 25px; font-size: 2rem;">🎯 Diese Berufe könnten zu dir passen:</h2>
+  `;
+  
+  berufe.forEach(beruf => {
+    html += `
+      <div class="beruf-card">
+        <h4>${beruf.name}</h4>
+        <p>${beruf.beschreibung}</p>
+        <div class="beruf-info">
+          <span class="beruf-tag">📚 ${beruf.abschluss}</span>
+          <span class="beruf-tag">⏱️ ${beruf.dauer}</span>
+          ${beruf.chancen ? '<span class="beruf-tag">✨ Gute Chancen</span>' : ''}
+        </div>
+      </div>
+    `;
+  });
+  
+  html += `
+      <div class="info-box" style="margin-top: 25px;">
+        <p><strong>💡 Nächster Schritt:</strong> Wechsle zum Tab "Bildungswege finden", um herauszufinden, wie du zu deinem Wunschberuf kommst!</p>
+      </div>
+      <button class="btn btn-primary" style="width: 100%; margin-top: 25px;" onclick="restartQuiz()">
+        🔄 Quiz neu starten
+      </button>
+    </div>
+  `;
+  
+  document.getElementById('quiz-content').innerHTML = html;
+}
+
+function restartQuiz() {
+  document.getElementById('quiz-start').style.display = 'block';
+  document.getElementById('quiz-progress-section').style.display = 'none';
+  document.getElementById('quiz-content').innerHTML = '';
+  document.getElementById('quiz-progress').style.width = '0%';
+}
+
+function getMatchingBerufe() {
+  const berufeDB = {
+    technik: [
+      { name: "Elektroniker/in", beschreibung: "Installiere elektrische Anlagen und halte sie instand.", abschluss: "Mittlere Reife", dauer: "3,5 Jahre", chancen: true },
+      { name: "Industriemechaniker/in", beschreibung: "Stelle Maschinen und Anlagen her und warte sie.", abschluss: "Hauptschulabschluss", dauer: "3,5 Jahre", chancen: true },
+      { name: "KFZ-Mechatroniker/in", beschreibung: "Repariere und warte Fahrzeuge.", abschluss: "Mittlere Reife", dauer: "3,5 Jahre", chancen: true }
+    ],
+    gesundheit: [
+      { name: "Medizinische/r Fachangestellte/r", beschreibung: "Unterstütze Ärzte bei der Behandlung und Betreuung von Patienten.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true },
+      { name: "Pflegefachmann/frau", beschreibung: "Pflege und betreue kranke und ältere Menschen.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true },
+      { name: "Zahnmedizinische/r Fachangestellte/r", beschreibung: "Assistiere bei zahnärztlichen Behandlungen.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true }
+    ],
+    wirtschaft: [
+      { name: "Kaufmann/frau für Büromanagement", beschreibung: "Organisiere und bearbeite bürowirtschaftliche Aufgaben.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true },
+      { name: "Industriekaufmann/frau", beschreibung: "Steuere betriebswirtschaftliche Abläufe in Unternehmen.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true },
+      { name: "Kaufmann/frau im Einzelhandel", beschreibung: "Verkaufe Waren und berate Kunden.", abschluss: "Hauptschulabschluss", dauer: "3 Jahre", chancen: true }
+    ],
+    kreativ: [
+      { name: "Mediengestalter/in", beschreibung: "Gestalte digitale und Print-Medien.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: false },
+      { name: "Friseur/in", beschreibung: "Schneide, färbe und style Haare.", abschluss: "Hauptschulabschluss", dauer: "3 Jahre", chancen: true },
+      { name: "Tischler/in", beschreibung: "Stelle Möbel und andere Holzprodukte her.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true }
+    ],
+    it: [
+      { name: "Fachinformatiker/in", beschreibung: "Entwickle Software oder betreue IT-Systeme.", abschluss: "Hochschulreife", dauer: "3 Jahre", chancen: true },
+      { name: "IT-System-Elektroniker/in", beschreibung: "Plane und installiere IT-Systeme.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true }
+    ],
+    natur: [
+      { name: "Gärtner/in", beschreibung: "Pflege Pflanzen und gestalte Außenanlagen.", abschluss: "Hauptschulabschluss", dauer: "3 Jahre", chancen: true },
+      { name: "Landwirt/in", beschreibung: "Erzeuge pflanzliche und tierische Produkte.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: false }
+    ],
+    gastronomie: [
+      { name: "Koch/Köchin", beschreibung: "Bereite Speisen zu und plane Menüs.", abschluss: "Hauptschulabschluss", dauer: "3 Jahre", chancen: true },
+      { name: "Hotelfachmann/frau", beschreibung: "Betreue Gäste in Hotels und gastronomischen Betrieben.", abschluss: "Mittlere Reife", dauer: "3 Jahre", chancen: true }
+    ]
+  };
+  
+  const field = answers.field || 'wirtschaft';
+  return berufeDB[field] || berufeDB.wirtschaft;
+}
+
+// Enter key support
+document.addEventListener('DOMContentLoaded', function() {
+  const selects = document.querySelectorAll('select');
+  selects.forEach(select => {
+    select.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        showPaths();
+      }
+    });
+  });
 });
